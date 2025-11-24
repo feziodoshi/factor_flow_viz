@@ -1,0 +1,161 @@
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title> OV Circuit Dashboard</title>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+        <style>
+            :root {
+                --sidebar-bg: #111111;
+                --main-bg: #000000;
+                --text-color: #e0e0e0;
+                --accent-color: #3b82f6; /* Modern Blue */
+                --accent-hover: #2563eb;
+                --border-color: #333;
+            }
+            
+            body { 
+                margin: 0; padding: 0; 
+                background-color: var(--main-bg); 
+                color: var(--text-color); 
+                font-family: 'Inter', sans-serif; 
+                display: flex; 
+                height: 100vh; 
+                overflow: hidden; 
+            }
+            
+            /* Scrollbar Styling */
+            ::-webkit-scrollbar { width: 8px; }
+            ::-webkit-scrollbar-track { background: #1a1a1a; }
+            ::-webkit-scrollbar-thumb { background: #444; border-radius: 4px; }
+            ::-webkit-scrollbar-thumb:hover { background: #555; }
+
+            /* Sidebar */
+            #sidebar {
+                width: 260px;
+                background-color: var(--sidebar-bg);
+                border-right: 1px solid var(--border-color);
+                display: flex;
+                flex-direction: column;
+                padding: 20px;
+                box-sizing: border-box;
+                z-index: 10;
+            }
+            
+            h2 { 
+                text-align: left; 
+                font-size: 14px;
+                text-transform: uppercase;
+                letter-spacing: 1.5px;
+                color: #888;
+                margin-top: 0;
+                margin-bottom: 20px;
+                padding-bottom: 10px;
+                border-bottom: 1px solid #333;
+            }
+            
+            .nav-container {
+                overflow-y: auto;
+                flex-grow: 1;
+                padding-right: 5px; /* space for scrollbar */
+            }
+            
+            .nav-btn {
+                width: 100%;
+                background: transparent;
+                color: #aaa;
+                border: 1px solid transparent;
+                padding: 14px 16px;
+                margin-bottom: 8px;
+                cursor: pointer;
+                text-align: left;
+                border-radius: 8px;
+                transition: all 0.2s ease;
+                font-size: 15px;
+                font-weight: 500;
+                display: flex;
+                align-items: center;
+                position: relative;
+            }
+            
+            .nav-btn:hover {
+                background: #1a1a1a;
+                color: #fff;
+                transform: translateX(4px);
+            }
+            
+            /* Active State - "Glowing" effect */
+            .nav-btn.active {
+                background: rgba(59, 130, 246, 0.1);
+                color: #fff;
+                border: 1px solid rgba(59, 130, 246, 0.4);
+            }
+            
+            .nav-btn.active::before {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 10px;
+                bottom: 10px;
+                width: 3px;
+                background-color: var(--accent-color);
+                border-top-right-radius: 3px;
+                border-bottom-right-radius: 3px;
+            }
+            
+            #main { flex-grow: 1; position: relative; }
+            iframe { width: 100%; height: 100%; border: none; display: block; }
+        </style>
+    </head>
+    <body>
+    
+        <div id="sidebar">
+            <h2>Source Layers</h2>
+            <div class="nav-container">
+                <button onclick="loadLayer(this, 'layer_0.html')" class="nav-btn">Layer 0</button>
+<button onclick="loadLayer(this, 'layer_1.html')" class="nav-btn">Layer 1</button>
+<button onclick="loadLayer(this, 'layer_2.html')" class="nav-btn">Layer 2</button>
+<button onclick="loadLayer(this, 'layer_3.html')" class="nav-btn">Layer 3</button>
+<button onclick="loadLayer(this, 'layer_4.html')" class="nav-btn">Layer 4</button>
+<button onclick="loadLayer(this, 'layer_5.html')" class="nav-btn">Layer 5</button>
+<button onclick="loadLayer(this, 'layer_6.html')" class="nav-btn">Layer 6</button>
+<button onclick="loadLayer(this, 'layer_7.html')" class="nav-btn">Layer 7</button>
+<button onclick="loadLayer(this, 'layer_8.html')" class="nav-btn">Layer 8</button>
+<button onclick="loadLayer(this, 'layer_9.html')" class="nav-btn">Layer 9</button>
+<button onclick="loadLayer(this, 'layer_10.html')" class="nav-btn">Layer 10</button>
+
+            </div>
+            <div style="margin-top: auto; padding-top: 20px; color: #555; font-size: 11px; text-align: center;">
+                Select a layer to visualize forward connectivity.
+            </div>
+        </div>
+        
+        <div id="main">
+            <iframe id="graphFrame" src="layer_0.html"></iframe>
+        </div>
+
+        <script>
+            function loadLayer(btn, filename) {
+                document.getElementById('graphFrame').src = filename;
+                
+                // Update active button state
+                var buttons = document.getElementsByClassName('nav-btn');
+                for(var i=0; i<buttons.length; i++) {
+                    buttons[i].classList.remove('active');
+                }
+                
+                // Add active class to clicked button
+                if (btn) {
+                    btn.classList.add('active');
+                } else {
+                    // Fallback for initial load
+                     buttons[0].classList.add('active');
+                }
+            }
+            
+            // Set initial active state manually
+            document.getElementsByClassName('nav-btn')[0].classList.add('active');
+        </script>
+    </body>
+    </html>
+    
