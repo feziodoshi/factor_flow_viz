@@ -1,14 +1,9 @@
-# Network Dashboards
+# Circuit Dashboards
 
-
-## OV-OV Dashboard for DINO
-https://feziodoshi.github.io/factor_flow_viz/naive_layer_by_layer/dino/network_dashboard/
-
-
-## OV-OV Dashboard for ViT
-https://feziodoshi.github.io/factor_flow_viz/naive_layer_by_layer/vit/network_dashboard/
+## QK-OV Dashboard for DINOv2-B/14
+https://feziodoshi.github.io/factor_flow_viz/dashboard/dinov2_vitb14_reg_lc/network_dashboard_backward/
 
 
 
-## QK-OV Dashboard for DINO
-https://feziodoshi.github.io/factor_flow_viz/qk_ov/dino/network_dashboard/
+## QK-OV Dashboard for ViT-B/16
+https://feziodoshi.github.io/factor_flow_viz/dashboard/vit_base_patch16_224_augreg_in1k/network_dashboard_backward
