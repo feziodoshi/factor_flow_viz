@@ -1,0 +1,146 @@
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>QK–OV Circuit for DINOv2-B/14</title>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+        <style>
+            :root {
+                --sidebar-bg: #111111;
+                --main-bg: #000000;
+                --text-color: #e0e0e0;
+                --accent-color: #3b82f6;
+                --border-color: #333;
+            }
+            body {
+                margin: 0; padding: 0;
+                background-color: var(--main-bg);
+                color: var(--text-color);
+                font-family: 'Inter', sans-serif;
+                display: flex;
+                height: 100vh;
+                overflow: hidden;
+            }
+            ::-webkit-scrollbar { width: 8px; }
+            ::-webkit-scrollbar-track { background: #1a1a1a; }
+            ::-webkit-scrollbar-thumb { background: #444; border-radius: 4px; }
+            ::-webkit-scrollbar-thumb:hover { background: #555; }
+
+            #sidebar {
+                width: 280px;
+                background-color: var(--sidebar-bg);
+                border-right: 1px solid var(--border-color);
+                display: flex;
+                flex-direction: column;
+                padding: 18px 20px 20px 20px;
+                box-sizing: border-box;
+                z-index: 10;
+            }
+            #dashTitle {
+                font-size: 13px;
+                font-weight: 600;
+                letter-spacing: 0.6px;
+                color: #e8e8e8;
+                margin: 0 0 14px 0;
+                padding-bottom: 12px;
+                border-bottom: 1px solid #333;
+                line-height: 1.25;
+            }
+            .dashSub {
+                font-size: 11px;
+                color: #777;
+                margin-top: 6px;
+            }
+            h2 {
+                text-align: left;
+                font-size: 14px;
+                text-transform: uppercase;
+                letter-spacing: 1.5px;
+                color: #888;
+                margin-top: 0;
+                margin-bottom: 14px;
+            }
+            .nav-container {
+                overflow-y: auto;
+                flex-grow: 1;
+                padding-right: 5px;
+            }
+            .nav-btn {
+                width: 100%;
+                background: transparent;
+                color: #aaa;
+                border: 1px solid transparent;
+                padding: 14px 16px;
+                margin-bottom: 8px;
+                cursor: pointer;
+                text-align: left;
+                border-radius: 8px;
+                transition: all 0.2s ease;
+                font-size: 15px;
+                font-weight: 500;
+                position: relative;
+            }
+            .nav-btn:hover {
+                background: #1a1a1a;
+                color: #fff;
+                transform: translateX(4px);
+            }
+            .nav-btn.active {
+                background: rgba(59, 130, 246, 0.1);
+                color: #fff;
+                border: 1px solid rgba(59, 130, 246, 0.4);
+            }
+            .nav-btn.active::before {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 10px;
+                bottom: 10px;
+                width: 3px;
+                background-color: var(--accent-color);
+                border-top-right-radius: 3px;
+                border-bottom-right-radius: 3px;
+            }
+            #main { flex-grow: 1; position: relative; }
+            iframe { width: 100%; height: 100%; border: none; display: block; }
+        </style>
+    </head>
+    <body>
+        <div id="sidebar">
+            <div id="dashTitle">
+              QK–OV Circuit for DINOv2-B/14
+              <div class="dashSub">Backward connectivity (layer → earlier layers). Layout: source_outer</div>
+            </div>
+
+            <h2>Target Layers</h2>
+            <div class="nav-container">
+                <button onclick="loadLayer(this, 'layer_1.html')" class="nav-btn">Layer 1</button>
+<button onclick="loadLayer(this, 'layer_2.html')" class="nav-btn">Layer 2</button>
+<button onclick="loadLayer(this, 'layer_3.html')" class="nav-btn">Layer 3</button>
+<button onclick="loadLayer(this, 'layer_4.html')" class="nav-btn">Layer 4</button>
+<button onclick="loadLayer(this, 'layer_5.html')" class="nav-btn">Layer 5</button>
+<button onclick="loadLayer(this, 'layer_6.html')" class="nav-btn">Layer 6</button>
+<button onclick="loadLayer(this, 'layer_7.html')" class="nav-btn">Layer 7</button>
+<button onclick="loadLayer(this, 'layer_8.html')" class="nav-btn">Layer 8</button>
+<button onclick="loadLayer(this, 'layer_9.html')" class="nav-btn">Layer 9</button>
+<button onclick="loadLayer(this, 'layer_10.html')" class="nav-btn">Layer 10</button>
+<button onclick="loadLayer(this, 'layer_11.html')" class="nav-btn">Layer 11</button>
+
+            </div>
+        </div>
+        <div id="main">
+            <iframe id="graphFrame" src="layer_1.html"></iframe>
+        </div>
+        <script>
+            function loadLayer(btn, filename) {
+                document.getElementById('graphFrame').src = filename;
+                var buttons = document.getElementsByClassName('nav-btn');
+                for(var i=0; i<buttons.length; i++) buttons[i].classList.remove('active');
+                if (btn) btn.classList.add('active');
+                else buttons[0].classList.add('active');
+            }
+            document.getElementsByClassName('nav-btn')[0].classList.add('active');
+        </script>
+    </body>
+    </html>
+    
